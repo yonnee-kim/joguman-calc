@@ -33795,7 +33795,7 @@ if(this.aU(a,b)<0)return b
 if(this.aU(a,c)>0)return c
 return a},
 P(a,b){var s
-if(b>20)throw A.d(A.bT(b,0,20,"fractionDigits",null))
+if(b<0||b>20)throw A.d(A.bT(b,0,20,"fractionDigits",null))
 s=a.toFixed(b)
 if(a===0&&this.gfG(a))return"-"+s
 return s},
@@ -65389,7 +65389,7 @@ else p=A.uL(0,h?5:0,0)
 o=j?l:new A.dR(B.dj,l,l,A.jJ(50),l,l,B.as)
 if(j)n=m.Mt(i.b)===""?"0":m.Mt(i.b)
 else{n=i.a
-n=n===""?"0":m.LF(n)}g=A.a([A.arI(0,A.a04(A.a([A.lN(A.afa(n,1,40,B.eB,A.nb(l,l,l,l,l,l,l,l,"SUIT",l,l,j?70:50,l,l,l,l,l,!0,l,l,l,l,l,l,l,l),B.d1),1)],g),B.fo,B.cB,B.cC))],g)
+n=n===""?"0":m.LF(n)}g=A.a([A.arI(0,A.a04(A.a([A.lN(A.afa(n,1,30,B.eB,A.nb(l,l,l,l,l,l,l,l,"SUIT",l,l,j?70:50,l,l,l,l,l,!0,l,l,l,l,l,l,l,l),B.d1),1)],g),B.fo,B.cB,B.cC))],g)
 if(e)g.push(new A.iI(new A.Yt(),l))
 r.push(A.lN(A.aby(l,new A.eO(B.kj,A.kH(B.aU,g,B.b8),l),B.aa,o,B.ak,l,p),q))
 f.push(A.lC(l,A.aft(r,B.cB),B.x,l,l,s,l,l,l,l,l,l,l))
@@ -65398,7 +65398,7 @@ Mt(a){var s,r
 if(a==="")s=""
 else{r=A.aaS(a)
 s=A.Yg("#,##0.###############").u3(r)}return s},
-LF(a){var s,r,q,p,o,n,m,l,k,j="#,##0"
+LF(a){var s,r,q,p,o,n,m,l,k,j,i,h,g="#,##0"
 if(a==="")s=""
 else{r=[]
 q=A.bw("\\d+\\.?\\d*|[/x\\-+]",!0,!1).mD(0,a)
@@ -65409,11 +65409,17 @@ m=A.bw("[/x\\-+]",!0,!1)
 if(m.b.test(n))r.push(n)
 else{m=A.bw("\\d+\\.$",!0,!1)
 if(m.b.test(n)){l=A.aaS(A.P7(n,".",""))
-r.push(A.Yg(j).u3(l)+".")}else{m=A.bw("\\d+\\.\\d+$",!0,!1)
+r.push(A.Yg(g).u3(l)+".")}else{m=A.bw("\\d+\\.\\d+$",!0,!1)
 if(m.b.test(n)){k=n.split(".")
 l=A.aaS(k[0])
-B.b.I(r,[A.Yg(j).u3(l),".",B.c.i(B.c.aO(A.aaq(B.d.W("0.",k[1]))*Math.pow(10,13))/Math.pow(10,13)).split(".")[1]])}else{l=A.aaS(n)
-r.push(A.Yg(j).u3(l))}}}}s=B.b.ly(r)}return s}}
+j=A.Yg(g).u3(l)
+i=k[1]
+n=B.c.aO(A.aaq("0."+i)*Math.pow(10,13))
+m=Math.pow(10,13)
+h=i.length
+if(h>13)h=13
+B.b.I(r,[j,".",B.c.P(n/m,h).split(".")[1]])}else{l=A.aaS(n)
+r.push(A.Yg(g).u3(l))}}}}s=B.b.ly(r)}return s}}
 A.Yq.prototype={
 $2(a,b){var s=b.d
 return A.kL(A.Bc(A.k_("assets/img/big_brachio_body.png",s*0.8,null),null,null),new A.o(-b.b*0.05,-s*0.1))},
